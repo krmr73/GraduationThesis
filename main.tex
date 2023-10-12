@@ -1,0 +1,98 @@
+%%
+% このファイルは、筑波大学情報学群情報科学類の
+% 卒業研究中間報告用本体のサンプルです。
+% このファイルを書き換えて、この例と同じような書式の論文本体を
+% LaTeXを使って作成することができます。
+%
+% PC環境や、LaTeX環境の設定によっては漢字コードや改行コードを
+% 変更する必要があります。
+%%
+\documentclass[uplatex,10pt]{ujarticle}
+
+%%【PDF, JPEG, PNG等の画像の貼り込み】
+%% 利用するパッケージを選んで下さい。
+\usepackage[dvipdfmx]{graphicx} % for \includegraphics[width=3cm]{sample.pdf}
+%\usepackage{epsfig} % for \psfig{file=sample.eps,width=3cm}
+%\usepackage{epsf} % for \epsfile{file=sample.eps,scale=0.6}
+%\usepackage{epsbox} % for \epsfile{file=sample.eps,scale=0.6}
+
+\usepackage{times} % use Times Font instead of Computer Modern
+
+\setcounter{tocdepth}{3}
+\setcounter{page}{1}
+
+\setlength{\oddsidemargin}{-.1in}
+\setlength{\evensidemargin}{-.1in}
+\setlength{\topmargin}{-4em}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{10in}
+\setlength{\parskip}{0em}
+\setlength{\topsep}{0em}
+\setlength{\columnsep}{3zw}
+
+%% タイトル生成用パッケージ(重要)
+\usepackage{coins-jp}
+
+%% タイトル
+\title{ソーシャルネットワークにおける多様な相互作用を捉える\\エージェントベースモデル}
+%% 著者
+\gakuseki{202213544}
+\author{岩橋七海}
+%% 指導教員　
+\advisor{岡瑞起}
+
+%% 年度と主専攻名
+\fiscalyear{2024}
+%\majorfield{ソフトウェアサイエンス主専攻}
+% \majorfield{情報システム主専攻}
+\majorfield{知能情報メディア主専攻}
+
+%% 提出日
+\year{2023}
+\month{1}
+\day{ZZ}
+
+\begin{document}
+\abstract{
+abstract
+}
+\maketitle
+
+\section{序論}
+
+\section{関連研究}
+
+\section{手法}
+\subsection{Ubaldiのモデル}
+\subsection{提案モデル}
+\subsubsection{戦略のベクトル表現}
+\subsubsection{進化的アルゴリズムによる探索}
+
+\section{実験}
+\subsection{データセット}
+\subsection{パラメータ}
+\subsection{結果}
+
+\section{結論}
+
+
+
+%% 参考文献に jbibtex を使う場合
+%\bibliographystyle{junsrt}
+%\bibliography{samplebib}
+%% [compile] jbibtex sample; platex sample; platex sample;
+
+%% 参考文献を直接ファイルに含めて書く場合
+\begin{thebibliography}{1}
+\bibitem{Bibunsho}
+奥村 晴彦, 黒木 裕介.
+\newblock LaTeX2ε美文書作成入門 改訂第7版.
+\newblock 技術評論社, 2017.
+
+\bibitem{ScienceResearchWriting}
+Hilary Glasman-Deal.
+\newblock Science Research Writing: A Guide for Non-Native Speakers of English.
+\newblock Imperial College Press, 2009.
+\end{thebibliography}
+
+\end{document}
