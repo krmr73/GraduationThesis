@@ -1,42 +1,37 @@
 %%
-% このファイルは、筑波大学情報学群情報科学類の
-% 卒業研究中間報告用本体のサンプルです。
-% このファイルを書き換えて、この例と同じような書式の論文本体を
-% LaTeXを使って作成することができます。
+% このファイルは筑波大学情報学群情報科学類の卒業研究論文のサンプルです。
+% このファイルを書き換えて、このサンプルと同様の書式の論文をLaTeXを使って
+% 作成できます。
 %
-% PC環境や、LaTeX環境の設定によっては漢字コードや改行コードを
-% 変更する必要があります。
+% OSやLaTeXの設定によっては漢字コードや改行コードを変更する必要があります。
 %%
-\documentclass[uplatex,10pt]{ujarticle}
+% \documentclass[a4paper,11pt]{jreport}
 
-%%【PDF, JPEG, PNG等の画像の貼り込み】
-%% 利用するパッケージを選んで下さい。
-\usepackage[dvipdfmx]{graphicx} % for \includegraphics[width=3cm]{sample.pdf}
-%\usepackage{epsfig} % for \psfig{file=sample.eps,width=3cm}
-%\usepackage{epsf} % for \epsfile{file=sample.eps,scale=0.6}
-%\usepackage{epsbox} % for \epsfile{file=sample.eps,scale=0.6}
-
-\usepackage{times} % use Times Font instead of Computer Modern
+%%【PDF, PostScript, JPEG, PNG等の画像の貼り込み】
+%% dvipdfmx を使う場合
+\documentclass[uplatex,11pt,openany]{ujreport}
+%% dvipdfmx を使ってPDFの「しおり」を付ける場合
+%%\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,bookmarkstype=toc]{hyperref} \usepackage{pxjahyper}
+\usepackage{ulem}
+\usepackage{times} % use Times font instead of default one
 
 \setcounter{tocdepth}{3}
-\setcounter{page}{1}
+\setcounter{page}{-1}
 
-\setlength{\oddsidemargin}{-.1in}
-\setlength{\evensidemargin}{-.1in}
-\setlength{\topmargin}{-4em}
-\setlength{\textwidth}{6.5in}
-\setlength{\textheight}{10in}
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\evensidemargin}{0.1in}
+\setlength{\topmargin}{0in}
+\setlength{\textwidth}{6in}
+%\setlength{\textheight}{10.1in}
 \setlength{\parskip}{0em}
 \setlength{\topsep}{0em}
-\setlength{\columnsep}{3zw}
 
-%% タイトル生成用パッケージ(重要)
+%% タイトル生成用パッケージ（重要）
 \usepackage{coins-jp}
 
 %% タイトル
-\title{ソーシャルネットワークにおける多様な相互作用を捉える\\エージェントベースモデル}
+\title{ソーシャルネットワークにおける多様な相互作用を\\捉えるエージェントベースモデル}
 %% 著者
-\gakuseki{202213544}
 \author{岩橋七海}
 %% 指導教員　
 \advisor{岡瑞起}
@@ -47,52 +42,166 @@
 % \majorfield{情報システム主専攻}
 \majorfield{知能情報メディア主専攻}
 
-%% 提出日
-\year{2023}
-\month{1}
-\day{ZZ}
 
 \begin{document}
-\abstract{
-abstract
-}
 \maketitle
+\thispagestyle{empty}
+\newpage
 
-\section{序論}
+\thispagestyle{empty}
+\vspace*{20pt plus 1fil}
+\parindent=1zw
+\noindent
+%%
+%% 論文の要旨
+%%
+\begin{center}
+{\Large \bf 要　　旨}
+\vspace{2cm}
+\end{center}
+この文書は筑波大学情報学群情報科学類の卒業研究論文のサンプルである。
+このファイルを書き換えて、このサンプルと同様の書式の論文を \LaTeX を
+使って作成できる。
 
-\section{関連研究}
+このサンプルは、学生が論文を作成する手間を軽減するために提供している。
+このサンプルで示す書式はあくまで例であり、要項に準拠していれば、この
+ファイルを使わずに自分で決めた書式を用いてもよい。
 
-\section{手法}
-\subsection{Ubaldiのモデル}
-\subsection{提案モデル}
-\subsubsection{戦略のベクトル表現}
-\subsubsection{進化的アルゴリズムによる探索}
+%%%%%
+\par
+\vspace{0pt plus 1fil}
+\newpage
 
-\section{実験}
-\subsection{データセット}
-\subsection{パラメータ}
-\subsection{結果}
+\pagenumbering{roman} % I, II, III, IV
+\tableofcontents
+\listoffigures
+%\listoftables
 
-\section{結論}
+\pagebreak \setcounter{page}{1}
+\pagenumbering{arabic} % 1,2,3
+
+\chapter{序論}
+    \section{背景}
+    人間の社会は何気ない挨拶、取引や交渉、SNSでのコミュニケーションなどの様々な相互作用によって成り立っている。
+    インターネットとモバイルデバイスの登場は、こうした多面的な相互作用に関するデータの記録と収集を容易にした。
+    その中で、ソーシャルネットワークプラットフォームやオンラインソーシャルゲームを用いることで、人間の相互作用のモデリングや根的にあるパターンや原理の発見が可能になる。
+    これらのコミュニケーションを包括的に理解することは、新規ユーザーを獲得し、既存のユーザーを維持するための効果的なサービスの開発に貢献すると考えられる。
+
+    これまで人間の活動を再現し理解するために、数理モデルが用いられてきた。
+    ネットワークは新たなノードやエッジの追加といった成長と、ネットワークの構造やエッジの重みといったダイナミクスの二つの側面から考えることができる。
+    ネットワークの成長のモデルとしては、Barabasi--Albert(BA)モデル[]のような優先的選択性を捉え、スケールフリー性を表せるモデルがある。
+    BAモデルはネットワークの成長を表すことはできるが、ネットワークの完全なダイナミクスを表現することはできない。
+    ネットワークのダイナミクスに焦点を当てたモデルは、現実世界のネットワーク構造をよりよく模倣するために、様々な手法を提案している。
+    これらの方法には、1つのステップで複数のエッジを導入する方法[]、友人が繋がりを作る可能性が高いtriadic closure[]、ユーザーの職業や信頼性に基づくフィットネスなどのノードの特性を考慮する方法[]などがある。
+    しかし、これらのモデルは、既存のノード間の関係を強化したり、新しい接続を形成したりするような活動をとらえることができず、複雑なネットワークの複雑さを完全に表現することはできない。
+
+    これらのモデルの原理を活用し、実際のデータを再現する精度を向上させるために、様々なモデルが提案されている。
+    モデルの一つのカテゴリーは、新規性の出現は従来想定されていたようなランダムなものではなく、「隣接可能空間」から発生するという考え方を取り入れたものである[]。
+    隣接可能空間とは現在の観測範囲から1ステップ外の空間のことであり、何らかのきっかけが一つあれば観測できる要素によって張られている。
+    Kaufmanは当初、分子や生物の進化を解明するためにこの考えを提唱した[]。
+    同様の考え方はタンパク質空間説にも見られ、遺伝子の進化は既存の遺伝子の微小な変化の積み重ねによって起こるものとし、その変化は遺伝子が表現型を形成できる制約の下で起こらなければならないと主張した。
+    Kaufmanはこの理論を遺伝子の進化だけでなく、人間関係の進化や技術革新の発展など様々な分野に拡張し、一般化した。
+
+    このような隣接可能空間の考え方は、Triaら[]によってモデル化された。
+    このモデルはトリガー付き壺モデルと呼ばれ、環境に壺が一つ存在すると仮定し、壺からエージェントを表す玉を選択したり追加したりすることでシステムの動作を表す。
+    Ubaldiらは、各エージェントにそれぞれの壺を割り当てることで、このモデルをエージェントベースのモデルに拡張した[]。
+    このモデルでは、隣接可能空間を通じて、エージェント同士のつながりを作ることで、社会的ネットワークが拡大すると仮定されている。
+    エージェント個々の定義されたルールセットに従って、社会的相互作用のダイナミクスをカプセル化し、エージェントの行動を決定する。
+    これらのルールは、ネットワークの成長とダイナミクスを捉え、既に相互作用したことがある人との相互作用、新しい人との相互作用、新しい人と関わるための隣接可能空間の探索を含む。
+    比較的単純にもかかわらず、このモデルはTwitter上で行われる返信や論文の共著、携帯電話の発信などの振る舞いを性格に表現できることが報告されている[]。
+
+    しかし、隣接可能空間を探索するという考え方をモデルに組み込むことには課題もある。
+    従来のモデルでは、人間がこの空間を探索する戦略をあらかじめ定義しておく必要がある。
+    そのため、実際のデータに最も適合するパラメータの最適化探索は、これらの事前に定義した戦略に制約される[]。
+    この制限に対応するため、本研究では複数の戦略に対応し、これらを効率的に探索できるモデルを提案する。
+    戦略をベクトル表現することで柔軟な探索を可能にし、進化的アルゴリズムのQuality Diversityアルゴリズムを用いることで効率的な探索を行う。
+    提案するモデルによって、実世界のソーシャルネットワークの相互作用を正確に捉えることを目的とする。
+    提案モデルは、既存手法と比較して実データとの整合性において優れた性能を示した。
+    相互作用を行う際に多くの戦略を取るという結果から、効率的な戦略の多様性が示され、社会ネットワークの理解につながると考えられる。
+    将来的には、より正確な予測モデルの設計からソーシャルメディア戦略の開発への情報提供まで、幅広い応用が期待される。
 
 
 
-%% 参考文献に jbibtex を使う場合
-%\bibliographystyle{junsrt}
-%\bibliography{samplebib}
-%% [compile] jbibtex sample; platex sample; platex sample;
+% BAモデルは成長するネットワークにおける優先的選択制を捉え、スケールフリーなネットワークの出現を説明できる。
+% また、ネットワークのダイナミクスのモデルとしては、triadic closureを導入したモデルがあるが、既存のノード間の複数回の相互作用や既存のノード間の新しいエッジの追加などダイナミクスを考慮しきれていない。
+% ポリアの壺モデルをベースとし、ネットワークの成長とダイナミクスの両方を考慮したエージェントベースモデルが提案されており、本研究はこのモデルをベースとしている。
+% このモデルは様々な実データの振る舞いをより正確に表現できることが報告されている。
 
-%% 参考文献を直接ファイルに含めて書く場合
-\begin{thebibliography}{1}
-\bibitem{Bibunsho}
-奥村 晴彦, 黒木 裕介.
-\newblock LaTeX2ε美文書作成入門 改訂第7版.
-\newblock 技術評論社, 2017.
 
-\bibitem{ScienceResearchWriting}
-Hilary Glasman-Deal.
-\newblock Science Research Writing: A Guide for Non-Native Speakers of English.
-\newblock Imperial College Press, 2009.
-\end{thebibliography}
+\chapter{関連研究}
+    \section{エージェントベースのポリアの壺モデル}
+
+
+    \section{進化的アルゴリズム}
+    進化的アルゴリズムは、生物の進化から着想を得た確率的探索手法である。
+
+        \subsection{遺伝的アルゴリズム}
+        ダーウィンの進化論から着想を得ており、生物の遺伝と進化を模倣したアルゴリズムである。
+        解の選択、交叉、突然変異などの操作を行い、問題の最適な解を見つけ出すことを目的とする。
+
+        \subsection{Quality Diversityアルゴリズム}
+        Quality Diversity(QD)アルゴリズムは、多様で高性能な解を探索するように設計されたアルゴリズムである[]。
+        このアルゴリズムでは、個体の振る舞いを特徴づけるベクトルBehavioral Descriptor(BD)を利用して、領域内の会に対する個体の新規性を定量化する。
+        各領域はその領域に対して、可能な限り適合したエージェントになるように反復的に決定される。
+        QDには二つの代表的なアルゴリズムがある。
+        その一つはNovelty Search with Local Competition(NSLC)[]である。
+        このアルゴリムはNovelty Searchに局所的な競争の概念を導入している。
+        個体をマッピングする領域は、BD空間におけるユークリッド距離に基づき、非構造化アーカイブを用いて決定する。
+
+        二つ目の代表的なアルゴリズムにMuliti-dimensional Archive of Phenotypic Elites(MAP-Elites)[]がある。
+        このアルゴリズムでは、BD空間はいくつかのグリッドに分けられる。
+        各グリッドにはマッピングされた単一の最も適合したエージェントが記憶される。
+        そして、BD空間を埋めるように探索を進める。エージェントはグリッドから選択され、突然変異などのランダムな変化を受ける。
+        そうしてできた新しい個体はその行動に対応するグリッドにマッピングされ、適合度が現在の占有者より高ければ記録される。
+
+        MAP-Elitesはセル数が特徴空間の次元数に応じて、指数関数的に増加するため、高次元のBD空間に対応するのは難しい。
+        また、セル数が増えることによって、選択圧が低くなってしまうことも問題である。
+        この問題を解決するために、MAP-Elitesを高次元の特徴空間にスケールアップするCVT-Map Elites[]が提案されている。
+        このアルゴリズムは、BD空間をグリッド上ではなく、重心ボロノイ分割によってボロノイ状のセルに分割する.
+        この方法の場合、セル数を固定してBD空間の次元を拡張することが可能になるため、高次元のBD空間の探索において、MAP-Elitesよりも優れた性能を示す.
+
+
+
+
+
+
+\chapter{手法}
+
+\chapter{実験}
+    \section{データセット}
+    \section{パラメータ}
+    \section{実験結果}
+
+
+\chapter{結論}
+
+
+% レポートや論文の書き方、日本語の\LaTeX の使い方に関しては、Web 上の情報や
+% 参考書など~\cite{Bibunsho,ScienceResearchWriting}を参照のこと。
+% また、参考文献、図、表の入れ方を含む、文章のスタイルについては、
+% ACM, IEEE, 情報処理学会, 電子情報通信学会などの学会が出版している
+% ジャーナルや国際会議の論文のスタイルを参考にするとよい。
+
+\chapter*{謝辞}
+\addcontentsline{toc}{chapter}{\numberline{}謝辞}
+本研究の遂行にあたり、研究の着想から論文の完成に至るまで、熱心なご指導と多大なご助言を賜りました岡瑞起教授に深く感謝申し上げます。
+また、毎週のゼミや研究室での議論を通じて、様々なご助言をいただいた研究室の皆様に心よりお礼申し上げます。
+特に、昨年卒業された須田幹大さんには、研究の方向性や壺モデルの実装に関する多くのご助言をいただきました。
+須田さんの経験と知識から多くのことを学び、研究を進める上で大変お世話になりました。
+また、岡部純弥さんには実験に関するサポートとご助言をいただきました。
+このように、多くの方々のご協力に恵まれ、本研究を遂行することができました。
+心より感謝申し上げます。
+
+
+\newpage
+
+% \addcontentsline{toc}{chapter}{\numberline{}参考文献}
+% \renewcommand{\bibname}{参考文献}
+
+% %% 参考文献に jbibtex を使う場合
+% \bibliographystyle{junsrt}
+% \bibliography{samplebib}
+% [compile] jbibtex sample; platex sample; platex sample;
+
 
 \end{document}
