@@ -1,64 +1,56 @@
-%% definition of title
 \newdimen\vspacetitle \newdimen\vspaceabstract
 \vspacetitle=0.5\textheight
-\vspaceabstract=0.7\textheight
 
 \def\advisor#1{\gdef\@advisor{#1}}
-\def\gakuseki#1{\gdef\@gakuseki{#1}}
 \def\majorfield#1{\gdef\@majorfield{#1}}
-\def\abstract#1{\gdef\@abstract{#1}}
 \def\fiscalyear#1{\gdef\@fiscalyear{#1}}
-\def\year#1{\gdef\@year{#1}}
-\def\month#1{\gdef\@month{#1}}
-\def\day#1{\gdef\@day{#1}}
-\def\keywords#1{\gdef\@keywords{#1}}
-\def\keywordsname{\bf Key Words : }
 
 \def\maketitle{\par
 \begingroup
-\def\@makefnmark{\hbox to\z@{$\m@th^{\@thefnmark}$\hss}}%
-\if@twocolumn
-\twocolumn[\@maketitle]
-\else
+\def\@makefnmark{\hbox
+     to\z@{$\m@th^{\@thefnmark}$\hss}}%
 \global\@topnum\z@
-\@maketitle \fi\thispagestyle{plain}\@thanks
+\@maketitle
+\thispagestyle{plain}\@thanks
 \endgroup
 
 \let\maketitle\relax
 \let\@maketitle\relax
-\gdef\@abstract{}\gdef\@keywords{}
-\let\abstract\relax \let\keywords\relax
-\let\etitle\relax\gdef\@etitle{}
-\let\gakuseki\relax\gdef\@gakuseki{}
 \let\majorfield\relax\gdef\@majorfield{}
-\let\year\relax\gdef\@year{}
-\let\month\relax\gdef\@month{}
-\let\day\relax\gdef\@day{}
 \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
 
 \def\@maketitle{
+% \newpage\null
+\vbox to \vspacetitle{
+\thispagestyle{empty}
+\begin{minipage}{6in}
 \begin{center}
-\vspace*{-3em}
-{\small \@fiscalyear 年度 筑波大学情報学群情報科学類 卒業研究中間報告}
+\vspace*{2cm}
+{\LARGE \@fiscalyear 年度}
 
-\vspace*{2.5em}
-{\LARGE \baselineskip 1em \bf \@title}
+\vspace{1cm}
+{\LARGE 筑波大学情報学群情報科学類}
 
-\vspace*{2em}
-{\Large \@majorfield \hspace{1em} \@gakuseki \hspace{1em} \@author }
+\vspace{1cm}
+{\LARGE 卒業研究論文}
 
-\vspace*{1em}
-{\Large 指導教員 \hspace{1em} \@advisor}
+\vspace{2.4cm}
+{\huge 題目 \\
+\vspace{0.5cm}
+\uline{\@title}} \vfill
 
-\vspace*{1.5em}
-{\Large 提出日 \hspace{1em} \@year 年 \@month 月 \@day 日}
+\vspace{6cm plus 2cm minus 2cm}
+
+\underline{\LARGE 主専攻 ~ \@majorfield}
+\vspace{1cm}
+
+\underline{\huge 著者 ~ \@author}
+
+\vspace{5mm}
+
+\underline{\LARGE 指導教員 ~ \@advisor}
 
 \end{center}
-
-\vspace*{1.5em}
-{\@abstract}
-\if@twocolumn
-\vspace*{1.5em}
-\fi
+\end{minipage}
 }
-
+}
