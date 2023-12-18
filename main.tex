@@ -19,7 +19,7 @@
 
 \usepackage{ulem}
 \usepackage{times} % use Times font instead of default one
-\usepackage[super]{cite}
+% \usepackage[super]{cite}
 \usepackage{subcaption}
 
 \usepackage{url}
@@ -105,30 +105,30 @@
 
     これまで人間の活動を再現し理解するために、数理モデルが用いられてきた。
     ネットワークは新たなノードやエッジの追加といった成長と、ネットワークの構造やエッジの重みといったダイナミクスの二つの側面から考えることができる。
-    ネットワークの成長のモデルとしては、Barabasi--Albert(BA)モデルのような優先的選択性を捉え、スケールフリー性を表せるモデルがある\cite{barabasi_emergence_1999,barabasi_origin_2005,barabasi_scale-free_2009}。
+    ネットワークの成長のモデルとしては、Barabasi--Albert(BA)モデルのような優先的選択性を捉え、スケールフリー性を表せるモデルがある\cite{barabasiEmergenceScalingRandom1999, barabasiOriginBurstsHeavy2005,barabasiScaleFreeNetworksDecade2009}。
     BAモデルはネットワークの成長を表すことはできるが、ネットワークの完全なダイナミクスを表現することはできない。
     ネットワークのダイナミクスに焦点を当てたモデルは、現実世界のネットワーク構造をよりよく模倣するために、様々な手法を提案している。
-    これらの方法には、1つのステップで複数のエッジを導入する方法\cite{albert_topology_2000}、友人が繋がりを作る可能性が高いtriadic closure\cite{bianconi_triadic_2014}、ユーザーの職業や信頼性に基づくフィットネスなどのノードの特性を考慮する方法\cite{topirceanu_weighted_2018}などがある。
+    これらの方法には、1つのステップで複数のエッジを導入する方法\cite{albertTopologyEvolvingNetworks2000}、友人が繋がりを作る可能性が高いtriadic closure\cite{bianconiTriadicClosureBasic2014}、ユーザーの職業や信頼性に基づくフィットネスなどのノードの特性を考慮する方法\cite{topirceanuWeightedBetweennessPreferential2018}などがある。
     しかし、これらのモデルは、既存のノード間の関係を強化したり、新しい接続を形成したりするような活動をとらえることができず、複雑なネットワークの複雑さを完全に表現することはできない。
 
     これらのモデルの原理を活用し、実際のデータを再現する精度を向上させるために、様々なモデルが提案されている。
-    モデルの一つのカテゴリーは、新規性の出現は従来想定されていたようなランダムなものではなく、「隣接可能空間」から発生するという考え方を取り入れたものである\cite{monechi_waves_2017,suda_exploration_2022,ubaldi_emergence_2021}。
+    モデルの一つのカテゴリーは、新規性の出現は従来想定されていたようなランダムなものではなく、「隣接可能空間」から発生するという考え方を取り入れたものである\cite{monechiWavesNoveltiesExpansion2017,sudaExplorationExploitationAdjacent2022, ubaldiEmergenceEvolutionSocial2021}。
     隣接可能空間とは現在の観測範囲から1ステップ外の空間のことであり、何らかのきっかけが一つあれば観測できる要素によって張られている。
-    Kaufmanは当初、分子や生物の進化を解明するためにこの考えを提唱した\cite{kauffman_origins_1993}。
-    同様の考え方はタンパク質空間説にも見られ、遺伝子の進化は既存の遺伝子の微小な変化の積み重ねによって起こるものとし、その変化は遺伝子が表現型を形成できる制約の下で起こらなければならないと主張した\cite{maynard_smith_natural_1970}。
+    Kaufmanは当初、分子や生物の進化を解明するためにこの考えを提唱した\cite{kauffmanOriginsOrderSelforganization1993}。
+    同様の考え方はタンパク質空間説にも見られ、遺伝子の進化は既存の遺伝子の微小な変化の積み重ねによって起こるものとし、その変化は遺伝子が表現型を形成できる制約の下で起こらなければならないと主張した\cite{maynardsmithNaturalSelectionConcept1970}。
     Kaufmanはこの理論を遺伝子の進化だけでなく、人間関係の進化や技術革新の発展など様々な分野に拡張し、一般化した。
 
-    このような隣接可能空間の考え方は、Triaら\cite{tria_dynamics_2014}によってモデル化された。
+    このような隣接可能空間の考え方は、Triaら\cite{triaDynamicsCorrelatedNovelties2014}によってモデル化された。
     このモデルはトリガー付き壺モデルと呼ばれ、環境に壺が一つ存在すると仮定し、壺からエージェントを表す玉を選択したり追加したりすることでシステムの動作を表す。
-    Ubaldiらは、各エージェントにそれぞれの壺を割り当てることで、このモデルをエージェントベースのモデルに拡張した\cite{ubaldi_emergence_2021}。
+    Ubaldiらは、各エージェントにそれぞれの壺を割り当てることで、このモデルをエージェントベースのモデルに拡張した\cite{ubaldiEmergenceEvolutionSocial2021}。
     このモデルでは、隣接可能空間を通じて、エージェント同士のつながりを作ることで、社会的ネットワークが拡大すると仮定されている。
     エージェント個々の定義されたルールセットに従って、社会的相互作用のダイナミクスをカプセル化し、エージェントの行動を決定する。
     これらのルールは、ネットワークの成長とダイナミクスを捉え、既に相互作用したことがある人との相互作用、新しい人との相互作用、新しい人と関わるための隣接可能空間の探索を含む。
-    比較的単純にもかかわらず、このモデルはTwitter上で行われる返信や論文の共著、携帯電話の発信などの振る舞いを性格に表現できることが報告されている\cite{ubaldi_emergence_2021}。
+    比較的単純にもかかわらず、このモデルはTwitter上で行われる返信や論文の共著、携帯電話の発信などの振る舞いを性格に表現できることが報告されている\cite{ubaldiEmergenceEvolutionSocial2021}。
 
     しかし、隣接可能空間を探索するという考え方をモデルに組み込むことには課題もある。
     従来のモデルでは、人間がこの空間を探索する戦略をあらかじめ定義しておく必要がある。
-    そのため、実際のデータに最も適合するパラメータの最適化探索は、これらの事前に定義した戦略に制約される\cite{suda_exploration_2022,suda_agent-based_2022,ubaldi_emergence_2021}。
+    そのため、実際のデータに最も適合するパラメータの最適化探索は、これらの事前に定義した戦略に制約される\cite{sudaExplorationExploitationAdjacent2022,sudaAgentbasedModelUsing2022, ubaldiEmergenceEvolutionSocial2021}。
     この制限に対応するため、本研究では複数の戦略に対応し、これらを効率的に探索できるモデルを提案する。
     戦略をベクトル表現することで柔軟な探索を可能にし、進化的アルゴリズムのQuality Diversityアルゴリズムを用いることで効率的な探索を行う。
     提案するモデルによって、実世界のソーシャルネットワークの相互作用を正確に捉えることを目的とする。
@@ -146,7 +146,7 @@
 
 \chapter{関連研究}
     \section{エージェントベースのポリアの壺モデル}
-    Ubaldiらのモデルは、社会的相互作用の複雑なダイナミクスを捉えるために、ポリアの壺モデルをベースとしている\cite{ubaldi_emergence_2021}。
+    Ubaldiらのモデルは、社会的相互作用の複雑なダイナミクスを捉えるために、ポリアの壺モデルをベースとしている\cite{ubaldiEmergenceEvolutionSocial2021}。
     このモデルは社会的相互作用における個人を「エージェント」、個人がそれぞれ持つ情報空間を「壺」として表現する。
     この壺には今後相互作用を行う可能性のあるエージェント、すでに相互作用したエージェントを示す「玉」が入っている。
     このモデルは次の3ステップで相互作用を行う。
@@ -225,15 +225,15 @@
 
 
         \subsection{Quality Diversityアルゴリズム}
-        Quality Diversity(QD)アルゴリズムは、多様で高性能な解を探索するように設計されたアルゴリズムである\cite{pugh_quality_2016}。
+        Quality Diversity(QD)アルゴリズムは、多様で高性能な解を探索するように設計されたアルゴリズムである\cite{pughQualityDiversityNew2016}。
         このアルゴリズムでは、個体の振る舞いを特徴づけるベクトルBehavioral Descriptor(BD)を利用して、領域内の会に対する個体の新規性を定量化する。
         各領域はその領域に対して、可能な限り適合したエージェントになるように反復的に決定される。
         QDには二つの代表的なアルゴリズムがある。
-        その一つはNovelty Search with Local Competition(NSLC)\cite{lehman_evolving_2011}である。
+        その一つはNovelty Search with Local Competition(NSLC)\cite{lehmanEvolvingDiversityVirtual2011}である。
         このアルゴリムはNovelty Searchに局所的な競争の概念を導入している。
         個体をマッピングする領域は、BD空間におけるユークリッド距離に基づき、非構造化アーカイブを用いて決定する。
 
-        二つ目の代表的なアルゴリズムにMuliti-dimensional Archive of Phenotypic Elites(MAP-Elites)\cite{mouret_illuminating_2015}がある。
+        二つ目の代表的なアルゴリズムにMuliti-dimensional Archive of Phenotypic Elites(MAP-Elites)\cite{mouretIlluminatingSearchSpaces2015}がある。
         このアルゴリズムでは、BD空間はいくつかのグリッドに分けられる。
         各グリッドにはマッピングされた単一の最も適合したエージェントが記憶される。
         そして、BD空間を埋めるように探索を進める。エージェントはグリッドから選択され、突然変異などのランダムな変化を受ける。
@@ -241,7 +241,7 @@
 
         MAP-Elitesはセル数が特徴空間の次元数に応じて、指数関数的に増加するため、高次元のBD空間に対応するのは難しい。
         また、セル数が増えることによって、選択圧が低くなってしまうことも問題である。
-        この問題を解決するために、MAP-Elitesを高次元の特徴空間にスケールアップするCVT-Map Elites\cite{vassiliades_using_2017}が提案されている。
+        この問題を解決するために、MAP-Elitesを高次元の特徴空間にスケールアップするCVT-Map Elites\cite{vassiliadesUsingCentroidalVoronoi2017}が提案されている。
         このアルゴリズムは、BD空間をグリッド上ではなく、重心ボロノイ分割によってボロノイ状のセルに分割する.
         この方法の場合、セル数を固定してBD空間の次元を拡張することが可能になるため、高次元のBD空間の探索において、MAP-Elitesよりも優れた性能を示す.
 
@@ -252,7 +252,7 @@
 
 \chapter{手法}
     従来のモデルでは、人間がこの空間を探索する戦略をあらかじめ定義しておく必要がある。
-    そのため、実際のデータに最も適合するパラメータの最適化探索は、これらの事前に定義した戦略に制約される\cite{suda_exploration_2022,suda_agent-based_2022,ubaldi_emergence_2021}。
+    そのため、実際のデータに最も適合するパラメータの最適化探索は、これらの事前に定義した戦略に制約される\cite{sudaExplorationExploitationAdjacent2022, sudaAgentbasedModelUsing2022,ubaldiEmergenceEvolutionSocial2021}。
     この制限に対応するため、本研究では複数の戦略に対応し、これらを効率的に探索できるモデルを提案する。
     戦略をベクトル表現することで柔軟な探索を可能にし、進化的アルゴリズムのQuality Diversityアルゴリズムを用いることで効率的な探索を行う。
     提案するモデルによって、実世界のソーシャルネットワークの相互作用を正確に捉えることを目的とする。
@@ -302,7 +302,7 @@
         ここで、$P={\gamma,C,Y,R, \langle h\rangle ,G,OC,OO,NC,NO}$は、ネットワークの成長とダイナミクスを表現する10個の指標の集合である。
         モデルによって作成した全てのデータの中の距離$d$が最小のものが最適なパラメータとなる。
 
-        モデルの評価は、Ubaldiらが提案したモデルの生成するネットワークのトポロジーとそのダイナミクスに関する6つの指標\cite{ubaldi_emergence_2021}と、Monechiらが提案した4つの新規性に関する指標\cite{monechi_waves_2017}を用いて行う。
+        モデルの評価は、Ubaldiらが提案したモデルの生成するネットワークのトポロジーとそのダイナミクスに関する6つの指標\cite{ubaldiEmergenceEvolutionSocial2021}と、Monechiらが提案した4つの新規性に関する指標\cite{monechiWavesNoveltiesExpansion2017}を用いて行う。
         Ubaldiらが提案している8つの指標の中で、詳細な記述と再現性が不足している指標を除いた6つの指標を用いている。
 
         評価に用いた指標は以下の通りである。
@@ -349,7 +349,7 @@
 
         \subsection{実データ}
             実データとしては、X mention Network(TMN)、American Physical Society(APS)共著ネットワークおよびMIXI Social Game Network(MIXI)の3つのデータセットを用いた。
-            TMNとAPSのデータセットは、Ubaldiらの研究\cite{ubaldi_emergence_2021}で使用され、公開されている。
+            TMNとAPSのデータセットは、Ubaldiらの研究\cite{ubaldiEmergenceEvolutionSocial2021}で使用され、公開されている。
             TMNとAPSデータセットの両方から、20000のcaller-callee相互作用データを評価に使用する。
             MIXIデータセットは、日本の主要なゲーム会社である株式会社MIXIによって、提供していただいたオンラインソーシャルゲーム「モンスターストライク」のデータを用いている。
             MIXIデータセットから49,346,896のcaller-callee相互作用データを評価に使用する。
@@ -368,11 +368,11 @@
         遺伝的アルゴリズムでは、交叉率、突然変異率、個体数のハイパーパラメータをグリッドサーチにより最適化する。
         ハイパーパラメータは、交叉率$C\in\{0.80,0.85,0.90.0.95\}$、突然変異率$M\in\{0.01,0.02,0.03,0.04,0.05\}$、個体数$N\in\{10,20,30,40,50\}$の組み合わせの中から最適なものを選択した。
 
-        QDアルゴリズムでは、Pythonライブラリのpyribs\cite{vassiliades_pyribs_2021}を用いる。
+        QDアルゴリズムでは、Pythonライブラリのpyribs\cite{tjanakaPyribsBareBonesPython2023}を用いる。
         生成されたネットワークのグラフは、graph2vecアルゴリズムを用いて、ベクトルに変換する。
         CVT-MAP-Elitesのセル数とグラフを変換したベクトルの次元数をグリッドサーチにより最適化する。
         セル数は$250,500,750$、ベクトルの次元数は$64,128,256$の組み合わせの中から最適なものを選択した。
-        変異率はCVT-MAP-Elitesでは初期値が設定されるが、CMA-ESアルゴリズム\cite{}によって決められ、一定ではないため、ハイパーパラメータチューニングを行っていない。
+        変異率はCVT-MAP-Elitesでは初期値が設定されるが、CMA-ESアルゴリズム\cite{hansenReducingTimeComplexity2003}によって決められ、一定ではないため、ハイパーパラメータチューニングを行っていない。
         グリッドサーチによって、見つけた最適なハイパーパラメータを表\ref{tab:hyperparameter}に示す。
         このパラメータを用いて、提案手法の探索を行った。
 
@@ -649,7 +649,7 @@
             この戦略は、既存の接続を強化するよりも、新しいエージェント、或いはあまり馴染みのないエージェントを探索することを好む可能性がある。
 
             QDアルゴリズムで特定されたネットワークの多様性を検証するために、各セルのエリートパラメータセットを使用して生成されたネットワークから、\verb|graph2vec|を用いて作成されたベクトルを視覚化した。
-            これは、t-SNE法\cite{t-SNE}を使用して行い、その結果は図\ref{fig:phenotype_map}-(A)\footnote{Map-Elitesアルゴリズムとは異なり、CVT-Map-Elitesは高次元の行動記述子を扱うため、直接的な視覚化が不可能であるため、このアプローチを採用した。}に示す。
+            これは、t-SNE法\cite{vandermaatenVisualizingDataUsing2008}を使用して行い、その結果は図\ref{fig:phenotype_map}-(A)\footnote{Map-Elitesアルゴリズムとは異なり、CVT-Map-Elitesは高次元の行動記述子を扱うため、直接的な視覚化が不可能であるため、このアプローチを採用した。}に示す。
             図では、赤い色はより小さい距離でより高い精度を意味し、緑色はより大きな距離でより低い精度を意味する。
             同様に、図\ref{fig:phenotype_map}-(B)は、GAによる最終世代で見つかったパラメータセットの視覚化を示す。
             \begin{figure}[htbp]
